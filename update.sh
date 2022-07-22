@@ -6,7 +6,9 @@ mv ./config.yaml ./config.yaml.bak
 curl -L -o config.yaml $LINK
 CURLSTATUS=$?
 
-yq -i '
+chmod +x ./yq
+
+./yq -i '
   .port = 7890 |
   .allow-lan = true
 ' config.yaml
